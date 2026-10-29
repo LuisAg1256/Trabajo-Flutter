@@ -12,45 +12,72 @@ class Buttons extends StatelessWidget {
           style: TextStyle(color: Color.fromARGB(255, 147, 4, 5)),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.thumb_up),
-              color: Colors.blue,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Botón Elevado'),
-            ),
-            const SizedBox(height: 20),
-            OutlinedButton(
-              onPressed: () {},
-              child: const Text('Botón Contorneado'),
-            ),
-            const SizedBox(height: 20),
-            TextButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
-                  if (states.contains(WidgetState.hovered)) {
-                    return Colors.black12;
-                  }
-                  return null;
-                }),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  // Acción al presionar el botón
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Text(
+                    'Botón Personalizado',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
               ),
-              child: const Text('Botón de Texto'),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Go Back'),
-            ),
-          ],
+              TextButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.thumb_up),
+                label: const Text('Botón de Texto con Icono'),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.thumb_up),
+                color: Colors.blue,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Botón Elevado'),
+              ),
+              const SizedBox(height: 20),
+              OutlinedButton(
+                onPressed: () {},
+                child: const Text('Botón Contorneado'),
+              ),
+              const SizedBox(height: 20),
+              TextButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  overlayColor:
+                      WidgetStateProperty.resolveWith<Color?>((states) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return Colors.black12;
+                    }
+                    return null;
+                  }),
+                ),
+                child: const Text('Botón de Texto'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Go Back'),
+              ),
+            ],
+          ),
         ),
       ),
     );
